@@ -1,31 +1,46 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from './product';
-import { Subject } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseService {
-  
-  url="http://localhost:3000/products"
-  private refProduct:any=[];
-  curProduct:any
-  constructor(private http:HttpClient) { 
-    this.getProducts().subscribe((adatok)=>this.refProduct= adatok)
+
+  prodUrl = "http://localhost:3000/products/"
+  private refProduct:any = [];
+  curProduct?:Product
+  curIndex?:number
+  constructor(private http: HttpClient, private router:Router) {
+    this.getProducts().subscribe((adatok) =>{ 
+      this.refProduct=adatok
+      // console.log(typeof(adatok))
+      // console.log(this.refProduct[0])
+    })
   }
-  
-  getProducts(){
-    return this.http.get(this.url)
+  reset(){
+    this.curIndex=undefined
+    this.curProduct=undefined
+    this.router.navigate(['/products'])
   }
-  setCurProduct(id:any){
-    this.curProduct= this.refProduct[this.keresProduct(id)]
+  setCurProduct(index: number) {
+    // console.log(index)
+    // let i = this.findProductIndex()
+    // console.log(i)
+
+    this.curProduct = this.refProduct[index]
     console.log(this.curProduct)
+    // console.log(this.refProduct.at(index))
   }
-  getCurProduct(){
+  getCurProduct() {
     return this.curProduct
   }
-  keresProduct(id:any){
+  // findProductIndex(id:any) {
+  //   console.log(id)
+  //   return this.refProduct.findIndex(id)
+  // }
+  findProductIndex(id:any){
     if (id==null) {
       return -1
     }
@@ -42,50 +57,54 @@ export class BaseService {
     // });
     return -1
   }
-
-  // frissul(){
-  //   this.refProduct
-  // }
-
-  addTetel(productv:any, del:boolean){
-    let van=this.keresProduct(productv.id)
-    let product
-    // if (van>=0) {
-    //     product=this.refProduct[this.keresProduct(productv.id)]
-    //     console.log(typeof(product))
-    //     console.log(product)
-    // }else{
-
-    // }
-
-    let tetel=productv
-    // refProduct.findIndex(
-    //   (e:any)=> e.id==productv.id
-    // )
-    console.log(van)
-    if (van>=0 && del) {
-      this.refProduct.splice(van, 1)
-      this.delProduct(this.url+"/"+van)
-    }
-    else if (van>=0) {
-      // this.refProduct[van]=productv
-      this.saveProduct(this.url+"/"+van)
-    }
-  // this.refProduct
-    else {
+  addTetel(productv: any, del?: boolean) {
+    let van = this.findProductIndex(productv.id)
+    console.log("van: ",van," productv.id: ", productv.id, " del: ", del)
+    if (van >= 0 && del) {
+      this.deleteItem(productv.id).subscribe(()=>{
+        console.log("why are you observable?")
+        this.reset()
+        this.refProduct.splice(van, 1)
+        //TODO: refresh refProducts
+      })
+    } else if (van >= 0) {
+      this.refProduct[van] = productv
+      this.editItem(productv).subscribe(()=>console.log("fmeee"))
+      this.reset()
+    } else {
       this.refProduct.push(productv)
-      let len = this.refProduct.length()
-      this.saveProduct(this.url+"/"+len)
+      // let len = this.refProduct.length
+      console.log(productv)
+      this.addItem(productv).subscribe({
+        next:()=>{console.log("no really"),
+        this.reset()},
+        error:(e)=>console.log(e)
+      })
     }
-    // this.frissul()
-    console.log(this.refProduct)
-    this.saveProduct(this.url)
   }
 
-  saveProduct(url:string){
-    this.http.post(url,this.refProduct).subscribe((aaa)=>console.log(aaa))
+
+  deleteItem(id: any) {
+    return this.http.delete(this.prodUrl + id)
   }
-  delProduct(url:string){
-    this.http.delete(url).subscribe((aaa)=>console.log(aaa))
+  getItem(id: any) {
+    return this.http.get(this.prodUrl + id)
+  }
+
+  addItem(product: any) {
+    return this.http.post(this.prodUrl, product)
+  }
+  editItem(product: any) {
+    return this.http.patch(this.prodUrl + product.id, product)
+  }
+  replaceItem(product: any) {
+    return this.http.put(this.prodUrl + product.id, product)
+  }
+
+
+
+
+  getProducts() {
+    return this.http.get(this.prodUrl)
   }
 }

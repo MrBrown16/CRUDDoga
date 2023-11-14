@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { BaseService } from '../base.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../product';
 
 @Component({
@@ -9,23 +8,25 @@ import { Product } from '../product';
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent {
-  product:any
-  id?: null;
-  name?: string;
-  price?: string;
-  description?: string;
-  quantity?: string;
-  image_url?: string;
+  product?:Product
+  
+  // id?: null;
+  // name?: string;
+  // price?: string;
+  // description?: string;
+  // quantity?: string;
+  // image_url?: string;
 
   constructor(private base:BaseService){
-    // this.aroute.paramMap.subscribe(
-    //   (param:any)=>this.product=JSON.parse(JSON.stringify(param.params))
-    // )
     this.product=this.base.getCurProduct()
+    if (this.product==undefined) {
+      this.createUj()
+    }
   }
 
   save(){
-    this.base.addTetel(this.product,false)
+    console.log(this.product)
+    this.base.addTetel(this.product)
   }
   del(){
     this.base.addTetel(this.product, true)
@@ -45,16 +46,21 @@ export class EditProductComponent {
   //   this.product=product
   //   console.log(product)
   // }
-  uj(){
-    this.product= new Product(null,"","","","","")
-    console.log(this.product)
-    this.product.id=null;
-    this.product.name="";
-    this.product.price="";
-    this.product.description="";
-    this.product.quantity="";
-    this.product.image_url="";
-    console.log(this.product)
+  // uj(){
+  //   this.product= new Product(null,"","","","","")
+  //   console.log(this.product)
+  //   this.product.id=null;
+  //   this.product.name="";
+  //   this.product.price="";
+  //   this.product.description="";
+  //   this.product.quantity="";
+  //   this.product.image_url="";
+  //   console.log(this.product)
+  // }
+  createUj(){
+    this.product=new Product(null,"","","","","");
   }
-
+  saveable(){
+    return false
+  }
 }

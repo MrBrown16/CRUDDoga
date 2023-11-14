@@ -25,104 +25,12 @@
       "quantity": 40
     },
     {
-      "id": 14,
-      "name": "Kerti szék",
-      "price": 34.99,
-      "description": "Kényelmes kerti szék, időjárásálló anyaggal és összecsukható kialakítással.",
-      "image_url": "https://example.com/gardenchair.jpg",
-      "quantity": 10
-    },
-    {
       "id": 15,
       "name": "Bluetooth fejhallgató",
       "price": 79.99,
       "description": "Vezeték nélküli Bluetooth fejhallgató, kristálytiszta hangzással.",
       "image_url": "https://example.com/headphones.jpg",
       "quantity": 18
-    },
-    [
-      {
-        "id": 11,
-        "name": "Konyhai robotgép",
-        "price": "129.9900000",
-        "description": "Erős és hatékony konyhai segítő, sokoldalú funkcionalitással.",
-        "image_url": "https://example.com/foodprocessor.jpg",
-        "quantity": 8
-      },
-      {
-        "id": 12,
-        "name": "Esernyő",
-        "price": 19.99,
-        "description": "Szélálló esernyő, tartós kialakítással és könnyű kezelhetőséggel.",
-        "image_url": "https://example.com/umbrella.jpg",
-        "quantity": 14
-      },
-      {
-        "id": 13,
-        "name": "Póló",
-        "price": 14.99,
-        "description": "Kényelmes pamut póló, divatos dizájnnal.",
-        "image_url": "https://example.com/tshirt.jpg",
-        "quantity": 40
-      },
-      {
-        "id": 14,
-        "name": "Kerti szék",
-        "price": 34.99,
-        "description": "Kényelmes kerti szék, időjárásálló anyaggal és összecsukható kialakítással.",
-        "image_url": "https://example.com/gardenchair.jpg",
-        "quantity": 10
-      },
-      {
-        "id": 15,
-        "name": "Bluetooth fejhallgató",
-        "price": 79.99,
-        "description": "Vezeték nélküli Bluetooth fejhallgató, kristálytiszta hangzással.",
-        "image_url": "https://example.com/headphones.jpg",
-        "quantity": 18
-      }
-    ],
-    [
-      {
-        "id": 11,
-        "name": "Konyhai robotgép",
-        "price": "129.9900000",
-        "description": "Erős és hatékony konyhai segítő, sokoldalú funkcionalitással.",
-        "image_url": "https://example.com/foodprocessor.jpg",
-        "quantity": 8
-      },
-      {
-        "id": 12,
-        "name": "Esernyő",
-        "price": 19.99,
-        "description": "Szélálló esernyő, tartós kialakítással és könnyű kezelhetőséggel.",
-        "image_url": "https://example.com/umbrella.jpg",
-        "quantity": 14
-      },
-      {
-        "id": 13,
-        "name": "Póló",
-        "price": 14.99,
-        "description": "Kényelmes pamut póló, divatos dizájnnal.",
-        "image_url": "https://example.com/tshirt.jpg",
-        "quantity": 40
-      },
-      {
-        "id": 14,
-        "name": "Kerti szék",
-        "price": 34.99,
-        "description": "Kényelmes kerti szék, időjárásálló anyaggal és összecsukható kialakítással.",
-        "image_url": "https://example.com/gardenchair.jpg",
-        "quantity": 10
-      },
-      {
-        "id": 15,
-        "name": "Bluetooth fejhallgató",
-        "price": 79.99,
-        "description": "Vezeték nélküli Bluetooth fejhallgató, kristálytiszta hangzással.",
-        "image_url": "https://example.com/headphones.jpg",
-        "quantity": 18
-      }
-    ]
+    }
   ]
 }

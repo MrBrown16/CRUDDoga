@@ -1,14 +1,14 @@
-{{products|json}}
+<!-- {{products|json}} -->
 
 
 <div class="input-group mb-3">
-    <!--     
-    <button (click)="edit=!edit" class="btn btn-warning" type="button" id="button-addon2">Módosít</button>
-    <input type="text" class="form-control" placeholder="Keresés" aria-label="Keresés" aria-describedby="button-addon2" > -->
+        
+    <button (click)="modosit(-1)" class="btn btn-warning" type="button" id="button-addon2">Új Produkt</button>
+    <!-- <input type="text" class="form-control" placeholder="Keresés" aria-label="Keresés" aria-describedby="button-addon2" > -->
 
 </div>
 <div class="row">
-    <div *ngFor="let product of products" class=" col-12 col-md-6 col-lg-4 col-xl-3">
+    <div *ngFor="let product of products; index as i" class=" col-12 col-md-6 col-lg-4 col-xl-3">
 
         <div class="card h-100">
             <div class="card-body">
@@ -20,7 +20,7 @@
             <div *ngIf="edit">
                 <button (click)="torol(product)" class="btn btn-danger col-6" type="button"
                     id="button-addon2">Töröl</button>
-                <button (click)="modosit(product)" class="btn btn-warning col-6" type="button"
+                <button (click)="modosit(i)" class="btn btn-warning col-6" type="button"
                     id="button-addon2">Módosít</button>
             </div>
         </div>

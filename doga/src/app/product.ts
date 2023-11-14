@@ -1,5 +1,5 @@
 export class Product {
-    id?:any;
+    id?:string;
     name?:any;
     price?:any;
     description?:any;
@@ -18,5 +18,4 @@ export class Product {
             quantity=quantity
             image_url=image_url
     }
-
 }

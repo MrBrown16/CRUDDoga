@@ -17,12 +17,11 @@ export class ProductsComponent {
     this.base.getProducts().subscribe((adatok)=>this.products=adatok)
 }
 
-torol(product:Product){
+torol(product:any){
   this.base.addTetel(product,true)
 }
-modosit(product:Product){
-  // this.base.addTetel(product,false)
-  this.base.setCurProduct(product.id)
+modosit(id:any){
+  this.base.setCurProduct(id)
   this.router.navigate(['/editproduct'])
 }
 }
