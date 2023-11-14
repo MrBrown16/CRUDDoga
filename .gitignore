@@ -1,0 +1,42 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/doga/dist
+/doga/tmp
+/doga/out-tsc
+/doga/bazel-out
+
+# Node
+/doga/node_modules
+/doga/npm-debug.log
+/doga/yarn-error.log
+
+# IDEs and editors
+/doga/.idea/
+/doga/.project
+/doga/.classpath
+/doga/.c9/
+/doga/*.launch
+/doga/.settings/
+/doga/*.sublime-workspace
+
+# Visual Studio Code
+/doga/.vscode/*
+/doga/!.vscode/settings.json
+/doga!.vscode/tasks.json
+/doga/!.vscode/launch.json
+/doga/!.vscode/extensions.json
+/doga/.history/*
+
+# Miscellaneous
+/doga/.angular/cache
+/doga/.sass-cache/
+/doga/connect.lock
+/doga/coverage
+/doga/libpeerconnection.log
+/doga/testem.log
+/doga/typings
+
+# System files
+/doga/.DS_Store
+/doga/Thumbs.db

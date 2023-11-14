@@ -1,0 +1,22 @@
+{{product|json}}
+
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Név" aria-label="Név" aria-describedby="button-addon2" [(ngModel)]="product.name">
+    <!-- <button class="btn btn-outline-secondary" type="button" id="button-addon2">keres</button> -->
+</div>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Kép Url" aria-label="Kép Url" aria-describedby="button-addon2" [(ngModel)]="product.image_url">
+    
+  </div>
+<div class="input-group mb-3">
+    <textarea type="text" class="form-control" placeholder="Leírás" aria-label="Leírás" aria-describedby="button-addon2" [(ngModel)]="product.description"></textarea>
+  </div>
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Ár" aria-label="Ár" aria-describedby="button-addon2" [(ngModel)]="product.price">
+</div>
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Raktáron(Db)" aria-label="Db" aria-describedby="button-addon2" [(ngModel)]="product.quantity">
+</div>
+<button class="btn btn-primary" type="button" id="button-addon2" (click)="save()" >Mentés</button>
+<button class="btn btn-danger" type="button" id="button-addon3" (click)="del()" >Töröl</button>
+<button class="btn btn-success" type="button" id="button-addon4" (click)="uj()" >Új</button>
